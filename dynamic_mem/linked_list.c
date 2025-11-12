@@ -142,44 +142,6 @@ void delete_node(Node **head_ref, int key) {
     free(tmp);
 }
 
-/*
- * Swap two nodes
- */
-void swap(Node *a, Node *b) {
-    Node tmp = *a;
-    *a = *b;
-    *b = tmp;
-
-    Node *tmp_next = a->next;
-    a->next = b->next;
-    b->next = tmp_next;
-}
-
-/*
- * Sort linked list by value
- */
-void sort(Node *head) {
-    if (head == NULL) {
-        return;
-    }
-    Node *head_ref = head;
-    Node *head_next = head->next;
-    while (head_ref != NULL) {
-        while (head_next != NULL) {
-            if (head_ref->data > head_next->data) {
-                swap(head_ref, head_next);
-            }
-            head_next = head_next->next;
-        }
-        head_ref = head_ref->next;
-        if (head_ref != NULL) {
-            head_next = head_ref->next;
-        } else {
-            head_next = NULL;
-        }
-    }
-}
-
 int main() {
     Node *head = NULL;
 
@@ -221,11 +183,6 @@ int main() {
     // Copy list
     Node *head_copy = clone_list(head);
     printf("Copy of linked list:");
-    print_list(head_copy);
-
-    // Sort copied list
-    sort(head_copy);
-    printf("Sorted copied linked list:");
     print_list(head_copy);
 
     // Delete original list
