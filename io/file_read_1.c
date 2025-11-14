@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define MAX 255
 
 int main() {
     FILE *fd = fopen("file.txt", "r");
     if (fd == NULL) {
-        fputs("Error opening file\n", stderr);
+        fprintf(stderr, "Error opening file\n");
         exit(EXIT_FAILURE);
     }
 
