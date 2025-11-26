@@ -23,10 +23,7 @@ int main() {
         printf("Error creating thread %i\n", thread_rc);
         exit(1);
     }
-
-    // We don't wait the new thread to finish
-    // pthread_join(thread_id, NULL);
-    printf("[MAIN: %ld]: Thread finished\n", main_id);
+    printf("[MAIN: %ld]: Main thread finished\n", main_id);
 
     // Let the process stay alive until all threads finish
     pthread_exit(NULL);
