@@ -25,7 +25,7 @@ int main() {
     }
 
     pthread_join(thread_id, NULL);
-    printf("[MAIN: %ld]: Thread finished\n", main_id);
+    printf("[MAIN: %ld]: Main thread finished\n", main_id);
 
     return 0;
 }
